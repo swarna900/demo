@@ -1,0 +1,32 @@
+<h2 id="tableLabel">Create Todo</h2>
+<div class="col-sm-12">
+  <app-create-todo [todo]="currentTodo" [editMode]="editMode" (submitTodo)="onSubmitTodo($event)"
+                   (resetTodo)="onResetTodo()"
+                   ></app-create-todo>
+  </div>
+<br />
+<div class="col-sm-12" style="color:green" *ngIf="showMessage">
+  <span >{{message}}</span>
+</div>
+  <br />
+
+  <h2 id="tableLabel">List of Todo's</h2>
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th width="50%">Contents</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.contents }}</td>
+        <td><button style="margin-right:1%" (click)="onEdit(todo)" class="btn">Edit</button> <button (click)="onDelete(todo)" class="btn">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

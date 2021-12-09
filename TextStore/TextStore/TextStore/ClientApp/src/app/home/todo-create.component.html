@@ -1,0 +1,26 @@
+<form class="form-horizontal" [formGroup]="form">
+
+  <div class="form-group" [ngClass]="displayFieldCss('title')">
+    <div class="col-sm-12">
+      <label for="title" class="control-label required">Title</label>
+      <input type="text" id="title" class="form-control" formControlName="title">
+      <span *ngIf="isFieldValid('title')">
+        Please enter your title
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="displayFieldCss('contents')">
+    <div class="col-sm-12">
+      <label for="contents" class="control-label required">Contents</label>
+      <input type="text" id="email" class="form-control" formControlName="contents">
+      <span *ngIf="isFieldValid('contents')">
+        Please enter your contents
+      </span>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <button class="btn btn-primary"  (click)="onSubmit()">Submit</button>
+    <button class="btn" (click)="reset()">Reset</button>
+  </div>
+</form>
